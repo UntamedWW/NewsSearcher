@@ -6,6 +6,30 @@ let currentKeyword = null;
 let isLoading = false;
 let lastArticleCount = 0;
 
+// Function to toggle between light and dark themes
+function toggleTheme() {
+  const body = document.body;
+  const themeButton = document.getElementById('themeToggle');
+  
+  body.classList.toggle('dark-theme');
+  
+  if (body.classList.contains('dark-theme')) {
+    themeButton.innerText = 'Switch to Light Mode';
+  } else {
+    themeButton.innerText = 'Switch to Dark Mode';
+  }
+}
+
+// Ensure the button is working to toggle the theme
+document.getElementById('themeToggle').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        this.innerText = 'Switch to Light Mode';
+    } else {
+        this.innerText = 'Switch to Dark Mode';
+    }
+});
+
 function fetchNews(isSearching) {
     if (isLoading) return;
 
